@@ -7,5 +7,6 @@ export default defineConfig({
   plugins: [react(), ghPages()],
   server: {
     host: true
-  }
+  },
+  assetsInclude: ['**/*.glb']
 })
