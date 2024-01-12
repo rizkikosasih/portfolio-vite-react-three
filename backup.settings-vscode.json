@@ -64,7 +64,6 @@
     "editor.indentSize": 2
   },
   "artisan.serve.defaultHost": "127.0.0.1",
-  "atlascode.jira.enabled": false,
   "blade.format.enable": true,
   "diffEditor.codeLens": true,
   "diffEditor.ignoreTrimWhitespace": false,
