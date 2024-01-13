@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, Suspense } from "react"
+import { useRef, useState, Suspense } from "react"
 import emailjs from "@emailjs/browser"
 import { Canvas } from "@react-three/fiber"
 import Loader from "../components/Loader"
