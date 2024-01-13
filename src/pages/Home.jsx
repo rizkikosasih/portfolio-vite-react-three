@@ -5,10 +5,7 @@ import Island from "./../models/Island"
 import Sky from "./../models/Sky"
 import Bird from "./../models/Bird"
 import Plane from "./../models/Plane"
-
-{/* <div className="absolute top-28 left-0 right-0 z-10 items-center justify-center flex">
-  Hello World!
-</div> */}
+import HomeInfo from "../components/HomeInfo"
 
 const Home = () => {
   const [currentStage, setCurrentStage] = useState(1);
@@ -19,7 +16,7 @@ const Home = () => {
     let screenPosition = [0, -6.5, -43.4]
 
     if (window.innerWidth < 768) {
-      screenScale = [0.9, 0.9, 0.9]
+      screenScale = [.9, .9, .9]
     }
     return [screenScale, screenPosition]
   }
@@ -42,13 +39,16 @@ const Home = () => {
 
   return (
     <section className="w-full h-screen relative">
+      <div className="absolute top-28 left-0 right-0 z-10 items-center justify-center flex">
+        {currentStage && <HomeInfo currentStage={currentStage} />}
+      </div>
       <Canvas
         className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
-        camera={{ near: 0.1, far: 1000 }}
+        camera={{ fov: 75, near: .1, far: 1000 }}
       >
         <Suspense fallback={<Loader />}>
           <directionalLight position={[10, 1, 10]} intensity={2} />
-          <ambientLight intensity={0.1} />
+          <ambientLight intensity={.1} />
           <pointLight position={[10, 5, 10]} intensity={2} />
           <hemisphereLight
             skyColor={"#b1e1ff"}
@@ -61,7 +61,7 @@ const Home = () => {
           <Island
             isRotating={isRotating}
             position={islandPosition}
-            rotation={[0.1, 4.7077, 0]}
+            rotation={[.1, 4.7077, 0]}
             scale={islandScale}
             setIsRotating={setIsRotating}
             setCurrentStage={setCurrentStage}
@@ -70,7 +70,7 @@ const Home = () => {
             isRotating={isRotating}
             position={planePosition}
             scale={planeScale}
-            rotation={[0, 20.1, 0]}
+            rotation={[0, 2.1, 0]}
           />
         </Suspense>
       </Canvas>

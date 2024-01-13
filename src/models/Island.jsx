@@ -32,56 +32,56 @@ export function Island({
 
   const rotationSpeed = useRef(0)
 
-  const dampingFactor = 0.95
+  const dampingFactor = .95
 
-  const handlePointerDown = (event) => {
-    event.stopPropagation()
-    event.preventDefault()
+  const handlePointerDown = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
     setIsRotating(true)
 
-    const clientX = event.touches ? event.touches[0].clientX : event.clientX
+    const clientX = e.touches ? e.touches[0].clientX : e.clientX
 
     lastX.current = clientX
   }
 
-  const handlePointerUp = (event) => {
-    event.stopPropagation()
-    event.preventDefault()
+  const handlePointerUp = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
     setIsRotating(false)
   }
 
-  const handlePointerMove = (event) => {
-    event.stopPropagation()
-    event.preventDefault()
+  const handlePointerMove = (e) => {
+    e.stopPropagation()
+    e.preventDefault()
     if (isRotating) {
-      const clientX = event.touches ? event.touches[0].clientX : event.clientX
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX
 
       const delta = (clientX - lastX.current) / viewport.width
 
-      islandRef.current.rotation.y += delta * 0.01 * Math.PI
+      islandRef.current.rotation.y += delta * .01 * Math.PI
 
       lastX.current = clientX
 
-      rotationSpeed.current = delta * 0.01 * Math.PI
+      rotationSpeed.current = delta * .01 * Math.PI
     }
   }
 
-  const handleKeyDown = (event) => {
-    if (event.key === "ArrowLeft") {
+  const handleKeyDown = (e) => {
+    if (e.key === "ArrowLeft") {
       if (!isRotating) setIsRotating(true)
 
-      islandRef.current.rotation.y += 0.005 * Math.PI
-      rotationSpeed.current = 0.007
-    } else if (event.key === "ArrowRight") {
+      islandRef.current.rotation.y += .005 * Math.PI
+      rotationSpeed.current = .007
+    } else if (e.key === "ArrowRight") {
       if (!isRotating) setIsRotating(true)
 
-      islandRef.current.rotation.y -= 0.005 * Math.PI
-      rotationSpeed.current = -0.007
+      islandRef.current.rotation.y -= .005 * Math.PI
+      rotationSpeed.current = -.007
     }
   }
 
-  const handleKeyUp = (event) => {
-    if (event.key === "ArrowLeft" || event.key === "ArrowRight") {
+  const handleKeyUp = (e) => {
+    if (e.key === "ArrowLeft" || e.key === "ArrowRight") {
       setIsRotating(false)
     }
   }
@@ -108,7 +108,7 @@ export function Island({
     if (!isRotating) {
       rotationSpeed.current *= dampingFactor
 
-      if (Math.abs(rotationSpeed.current) < 0.001) {
+      if (Math.abs(rotationSpeed.current) < .001) {
         rotationSpeed.current = 0
       }
 
@@ -122,7 +122,7 @@ export function Island({
         case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
           setCurrentStage(4)
           break
-        case normalizedRotation >= 0.85 && normalizedRotation <= 1.3:
+        case normalizedRotation >= .85 && normalizedRotation <= 1.3:
           setCurrentStage(3)
           break
         case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
@@ -138,7 +138,6 @@ export function Island({
   })
 
   return (
-    // {Island 3D model from: https://sketchfab.com/3d-models/foxs-islands-163b68e09fcc47618450150be7785907}
     <a.group ref={islandRef} {...props}>
       <mesh
         geometry={nodes.polySurface944_tree_body_0.geometry}
