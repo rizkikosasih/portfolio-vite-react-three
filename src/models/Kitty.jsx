@@ -7,32 +7,25 @@ Title: Cute Little Kitty
 */
 
 import { useRef, useEffect } from "react";
-import { useNavigate } from "react-router-dom"
 import { useGLTF, useAnimations } from "@react-three/drei"
 import { a } from "@react-spring/three"
 import kittyScene from "./../assets/3d/kitty.glb"
+import { useThree } from "@react-three/fiber";
 
 const Kitty = ({
   currentAnimation,
   ...props
 }) => {
-  const navigate = useNavigate()
   const kittyRef = useRef()
+  const { setSize, size } = useThree()
   const { nodes, materials, animations } = useGLTF(kittyScene)
   const { actions } = useAnimations(animations, kittyRef)
 
   useEffect(() => {
+    setSize(size.width, 325, true)
     Object.values(actions).forEach((action) => action.stop())
     if (actions[currentAnimation]) {
       actions[currentAnimation].play()
-    }
-
-    const handleResize = () => {
-      navigate(0)
-    }
-    window.addEventListener('resize', handleResize)
-    return () => {
-      window.removeEventListener('resize', handleResize)
     }
   }, [actions, currentAnimation])
 

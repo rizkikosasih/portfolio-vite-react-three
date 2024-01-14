@@ -1,14 +1,18 @@
 import { useRef, useState, Suspense } from "react"
 import emailjs from "@emailjs/browser"
 import { Canvas } from "@react-three/fiber"
-import Loader from "../components/Loader"
-import Kitty from "../models/Kitty"
+import Loader from "./../components/Loader"
+import Kitty from "./../models/Kitty"
+import kittySize from "./../models/KittySize"
+import { useEffect } from "react"
 
 const Contact = () => {
   const formRef = useRef()
+  const canvasRef = useRef()
   const [form, setForm] = useState({ name: '', email: '', message: '' })
   const [isLoading, setIsLoading] = useState(false)
   const [currentAnimation, setCurrentAnimation] = useState('Sleeping')
+  const [currentSize, setCurrentSize] = useState('xlMax')
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -49,26 +53,31 @@ const Contact = () => {
   }
 
   /* adjust for screen size */
+  useEffect(() => {
+    if (window.innerWidth <= 480) {
+      setCurrentSize('smMax')
+    } else if (window.innerWidth <= 768) {
+      setCurrentSize('mdMax')
+    } else if (window.innerWidth <= 1024) {
+      setCurrentSize('lgMax')
+    } else {
+      setCurrentSize('xlMax')
+    }
+
+    return () => adjustForScreenSize
+  }, [])
+
   const adjustForScreenSize = () => {
-    let screenPosition = [.75, -1.5, 0]
-    let screenRotation = [0, 0, 0]
-    let screenScale = [2.15, 2.15, 2.15]
-
-    if (currentAnimation === 'Sleeping') {
-      screenRotation = [0, -1.15, 0]
-    }
-
-    if (window.innerWidth < 768) {
-      screenPosition = [.67, -.45, 0]
-      screenScale = [1.87, 1.87, 1.87]
-    }
+    let screenPosition = kittySize[currentSize][currentAnimation]['position']
+    let screenRotation = kittySize[currentSize][currentAnimation]['rotation']
+    let screenScale = kittySize[currentSize][currentAnimation]['scale']
     return [screenPosition, screenRotation, screenScale]
   }
 
   const [positionScene, rotationScene, scaleScene] = adjustForScreenSize()
 
   return (
-    <section className="relative flex md:flex-row flex-col max-container">
+    <section className="relative flex md:flex-row flex-col items-center max-container">
       <div className="flex flex-col w-full md:flex-shrink-0 md:flex-grow-0 md:w-1/2">
         <h1 className="head-text">Get In Touch</h1>
 
@@ -130,13 +139,14 @@ const Contact = () => {
 
       <div className="flex flex-col w-full md:flex-shrink-0 md:flex-grow-0 md:w-1/2">
         <Canvas
+          ref={canvasRef}
           camera={{
             // position: [0, 0, 5],
-            fov: 75,
+            fov: 35,
             near: .1,
             far: 1000
           }}
-          className="flex justify-center items-center"
+          className="flex justify-center items-center mt-10 md:mt-0"
           resize={{ scroll: true, debounce: 0 }}
           shadows linear
         >
