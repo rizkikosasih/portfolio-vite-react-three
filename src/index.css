@@ -21,6 +21,17 @@ body:has(.card[data-color="green"]:hover) {
   background-color: rgb(var(--green-rgb) / 25%);
 }
 
+.border-image {
+  position: absolute;
+  top: -10px;
+  border: dashed 3px transparent;
+  border-radius: 9999px;
+  background-image: linear-gradient(to right, #00c6ff, #0072ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  z-index: -1;
+}
+
 @layer utilities {
   .max-container {
     @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
@@ -75,7 +86,7 @@ body:has(.card[data-color="green"]:hover) {
   }
 
   .cta-text {
-    @apply text-black-500 font-extrabold flex-1 text-3xl max-md: text-center;
+    @apply text-black-500 font-extrabold flex-1 text-2xl md:text-3xl max-md:text-center;
   }
 }
 

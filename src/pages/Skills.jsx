@@ -1,6 +1,8 @@
 const Skills = () => {
   return (
-    <div>Skills</div>
+    <section className="max-container">
+      <h1 className="head-text">Skills</h1>
+    </section>
   )
 }
 
