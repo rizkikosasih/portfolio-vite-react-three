@@ -4,7 +4,7 @@ import { Canvas } from "@react-three/fiber"
 import Loader from "./../components/Loader"
 import Alert from "./../components/Alert"
 import Cat from "../models/Cat"
-import catSize from "../constant/CatSize"
+import { catSize } from "../constants/index"
 import useAlert from "../hooks/useAlert"
 
 const Contact = () => {

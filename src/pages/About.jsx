@@ -1,4 +1,4 @@
-import imgAbout from "./../assets/img/photo.jpg"
+import imgAbout from "./../assets/images/photo.jpg"
 import CTA from "./../components/CTA"
 
 const About = () => {
