@@ -1,10 +1,11 @@
-import { useRef, useState, Suspense } from "react"
+import { useEffect, useRef, useState, Suspense } from "react"
 import emailjs from "@emailjs/browser"
 import { Canvas } from "@react-three/fiber"
 import Loader from "./../components/Loader"
+import Alert from "./../components/Alert"
 import Cat from "../models/Cat"
-import catSize from "./../models/CatSize"
-import { useEffect } from "react"
+import catSize from "../constant/CatSize"
+import useAlert from "../hooks/useAlert"
 
 const Contact = () => {
   const formRef = useRef()
@@ -13,6 +14,8 @@ const Contact = () => {
   const [isLoading, setIsLoading] = useState(false)
   const [currentAnimation, setCurrentAnimation] = useState('Sleeping')
   const [currentSize, setCurrentSize] = useState('xlMax')
+
+  const { alert, showAlert, hideAlert } = useAlert()
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value })
@@ -41,14 +44,18 @@ const Contact = () => {
       import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
     ).then(() => {
       setIsLoading(false)
+      showAlert({ text: 'Message sent successfully!', type: 'success' })
       setForm({ name: '', email: '', message: '' })
+
       setTimeout(() => {
+        hideAlert()
         setCurrentAnimation('Sleeping')
-      }, 3000)
+      }, [3000])
     }).catch((error) => {
       setIsLoading(false)
       setCurrentAnimation('Sleeping')
       console.warn(error)
+      showAlert({ text: 'I didnt received your message', type: 'danger' })
     })
   }
 
@@ -78,6 +85,9 @@ const Contact = () => {
 
   return (
     <section className="relative flex md:flex-row flex-col items-center max-container">
+      {alert.show && <Alert {...alert} />}
+      <Alert {...alert} />
+
       <div className="flex flex-col w-full md:flex-shrink-0 md:flex-grow-0 md:w-1/2">
         <h1 className="head-text">Get In Touch</h1>
 
