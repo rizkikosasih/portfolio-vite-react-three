@@ -2,8 +2,8 @@ import { useRef, useState, Suspense } from "react"
 import emailjs from "@emailjs/browser"
 import { Canvas } from "@react-three/fiber"
 import Loader from "./../components/Loader"
-import Kitty from "./../models/Kitty"
-import kittySize from "./../models/KittySize"
+import Cat from "../models/Cat"
+import catSize from "./../models/CatSize"
 import { useEffect } from "react"
 
 const Contact = () => {
@@ -68,9 +68,9 @@ const Contact = () => {
   }, [])
 
   const adjustForScreenSize = () => {
-    let screenPosition = kittySize[currentSize][currentAnimation]['position']
-    let screenRotation = kittySize[currentSize][currentAnimation]['rotation']
-    let screenScale = kittySize[currentSize][currentAnimation]['scale']
+    let screenPosition = catSize[currentSize][currentAnimation]['position']
+    let screenRotation = catSize[currentSize][currentAnimation]['rotation']
+    let screenScale = catSize[currentSize][currentAnimation]['scale']
     return [screenPosition, screenRotation, screenScale]
   }
 
@@ -157,7 +157,7 @@ const Contact = () => {
             />
             <ambientLight intensity={0.5} />
 
-            <Kitty
+            <Cat
               currentAnimation={currentAnimation}
               position={positionScene}
               rotation={rotationScene}
