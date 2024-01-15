@@ -8,7 +8,7 @@ const About = () => {
         Hello, I'm <span className="blue-gradient_text font-semibold drop-shadow">Rizki</span>
       </h1>
 
-      <div className="flex flex-col-reverse md:flex-row justify-center items-center mt-6">
+      <div className="flex flex-col-reverse md:flex-row justify-center items-center my-6">
         <div className="flex flex-col items-center md:flex-shrink-0 md:flex-grow-0 md:basis-auto md:w-1/2">
           <p className="text-justify text-lg text-slate-500">
             A Website Developer with more than 2.5 years of experience in this field developing, testing and observing company applications and equipped with Full-Stack knowledge & skills. Currently looking for a startup technology company to develop an application.

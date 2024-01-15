@@ -194,4 +194,8 @@ const socialLinks = [
   }
 ]
 
-export { catSize, skills, socialLinks }
+const listMenu = ['/', '/about', '/skills', '/contact']
+
+const listFooter = ['/about', '/skills', '/contact']
+
+export { catSize, skills, socialLinks, listMenu, listFooter }

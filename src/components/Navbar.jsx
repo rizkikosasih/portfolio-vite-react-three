@@ -1,8 +1,11 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useLocation } from "react-router-dom"
+import { listMenu } from "../constants"
 
 const Navbar = () => {
+  const location = useLocation()
+
   return (
-    <header className="header">
+    <header className={listMenu.includes(location.pathname) ? 'header' : 'hidden'}>
       <NavLink to="/" className="w-10 h-10 rounded-lg bg-white items-center justify-center flex font-bold shadow-md">
         <p className="blue-gradient_text">RK</p>
       </NavLink>

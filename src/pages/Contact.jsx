@@ -164,7 +164,7 @@ const Contact = () => {
               intensity={2.5}
               position={[0, 0, 1]}
             />
-            <ambientLight intensity={0.5} />
+            <ambientLight intensity={1} />
 
             <Cat
               currentAnimation={currentAnimation}

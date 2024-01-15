@@ -8,9 +8,9 @@ const Skills = () => {
       <div className='py-10 flex flex-col'>
         <h3 className='subhead-text'>My <span className="blue-gradient_text">Skills</span></h3>
 
-        <div className='mt-16 flex flex-wrap gap-12'>
+        <div className='mt-16 flex flex-wrap gap-12 justify-center md:justify-normal'>
           {skills.map((skill) => (
-            <div className='block-container w-20 h-20' key={skill.name}>
+            <div className='block-container w-16 h-16 md:w-20 md:h-20' key={skill.name}>
               <div className='btn-back rounded-xl' />
               <div
                 data-tooltip-id={skill.name.trim().toLowerCase()}

@@ -21,17 +21,6 @@ body:has(.card[data-color="green"]:hover) {
   background-color: rgb(var(--green-rgb) / 25%);
 }
 
-.border-image {
-  position: absolute;
-  top: -10px;
-  border: dashed 3px transparent;
-  border-radius: 9999px;
-  background-image: linear-gradient(to right, #00c6ff, #0072ff);
-  background-origin: border-box;
-  background-clip: content-box, border-box;
-  z-index: -1;
-}
-
 @layer utilities {
   .max-container {
     @apply max-w-5xl mx-auto sm:p-16 pb-12 !pt-[126px] px-8 min-h-[calc(100vh-80px)];
@@ -191,4 +180,20 @@ body:has(.card[data-color="green"]:hover) {
   border: #fff;
   box-shadow: 0.6vmin 0.6vmin #fff, 1vmin 1vmin #d2e4ff, 1vmin 1vmin #d2e4ff,
     0.65vmin 1vmin #d2e4ff, 1vmin 0.65vmin #d2e4ff;
+}
+
+.border-image {
+  position: absolute;
+  top: -10px;
+  border: dashed 3px transparent;
+  border-radius: 9999px;
+  background-image: linear-gradient(to right, #00c6ff, #0072ff);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  z-index: -1;
+}
+
+footer.footer.hidden,
+header.header.footer.hidden {
+  display: none !important;
 }

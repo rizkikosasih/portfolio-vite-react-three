@@ -54,9 +54,9 @@ export function Island({
     e.stopPropagation()
     e.preventDefault()
     if (isRotating) {
-      const speedRotation = isMobile ? .1 : .01
+      const speedRotation = isMobile ? .045 : .01
 
-      const clientX = e.clientX
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX
 
       const delta = (clientX - lastX.current) / viewport.width
 
@@ -112,31 +112,30 @@ export function Island({
       rotationSpeed.current *= dampingFactor
 
       if (Math.abs(rotationSpeed.current) < .001) {
-        rotationSpeed.current = 0
+        rotationSpeed.current += 0.001
       }
 
-      islandRef.current.rotation.y += rotationSpeed.current
-    } else {
-      const rotation = islandRef.current.rotation.y
+      islandRef.current.rotation.y -= rotationSpeed.current
+    }
+    const rotation = islandRef.current.rotation.y
 
-      const normalizedRotation = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI)
+    const normalizedRotation = ((rotation % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI)
 
-      switch (true) {
-        case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
-          setCurrentStage(4)
-          break
-        case normalizedRotation >= .85 && normalizedRotation <= 1.3:
-          setCurrentStage(3)
-          break
-        case normalizedRotation >= 2.4 && normalizedRotation <= 2.6:
-          setCurrentStage(2)
-          break
-        case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
-          setCurrentStage(1)
-          break
-        default:
-          setCurrentStage(null)
-      }
+    switch (true) {
+      case normalizedRotation >= 5.45 && normalizedRotation <= 5.85:
+        setCurrentStage(4)
+        break
+      case normalizedRotation >= .85 && normalizedRotation <= 1.3:
+        setCurrentStage(3)
+        break
+      case normalizedRotation >= 2 && normalizedRotation <= 2.6:
+        setCurrentStage(2)
+        break
+      case normalizedRotation >= 4.25 && normalizedRotation <= 4.75:
+        setCurrentStage(1)
+        break
+      default:
+        setCurrentStage(null)
     }
   })
 
