@@ -84,7 +84,7 @@ const Contact = () => {
   const [positionScene, rotationScene, scaleScene] = adjustForScreenSize()
 
   return (
-    <section className="relative flex md:flex-row flex-col items-center max-container">
+    <section className="max-container relative flex md:flex-row flex-col-reverse items-center">
       {alert.show && <Alert {...alert} />}
 
       <div className="flex flex-col w-full md:flex-shrink-0 md:flex-grow-0 md:w-1/2">
@@ -146,7 +146,7 @@ const Contact = () => {
         </form>
       </div>
 
-      <div className="flex flex-col w-full md:flex-shrink-0 md:flex-grow-0 md:w-1/2">
+      <div className="flex flex-col w-full md:flex-shrink-0 md:flex-grow-0 md:w-1/2 absolute top-1/3 -z-10 md:relative md:z-[1]">
         <Canvas
           ref={canvasRef}
           camera={{
@@ -155,7 +155,7 @@ const Contact = () => {
             near: .1,
             far: 1000
           }}
-          className="flex justify-center items-center mt-10 md:mt-0"
+          className="flex justify-center items-center"
           resize={{ scroll: true, debounce: 0 }}
           shadows linear
         >
