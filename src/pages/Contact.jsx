@@ -186,7 +186,7 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="absolute -bottom-1/4 left-0 right-0 z-[1]">
+      <div className="absolute -bottom-[5%] left-0 right-0 z-[1]">
         {createBubble()}
       </div>
     </section>
