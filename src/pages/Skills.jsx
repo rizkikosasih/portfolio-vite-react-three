@@ -5,8 +5,8 @@ import { Tooltip } from "react-tooltip"
 const Skills = () => {
   return (
     <section className="max-container">
-      <div className='py-10 flex flex-col'>
-        <h3 className='subhead-text'>My <span className="blue-gradient_text">Skills</span></h3>
+      <h1 className='head-text'>My <span className="blue-gradient_text">Skills</span></h1>
+      <div className='pb-10 flex flex-col'>
 
         <div className='mt-16 flex flex-wrap gap-12 justify-center md:justify-normal'>
           {skills.map((skill) => (
@@ -35,6 +35,8 @@ const Skills = () => {
           ))}
         </div>
       </div>
+
+      <hr className='border-slate-200' />
 
       <CTA />
     </section>

@@ -198,4 +198,34 @@ const listMenu = ['/', '/about', '/skills', '/contact']
 
 const listFooter = ['/about', '/skills', '/contact']
 
-export { catSize, skills, socialLinks, listMenu, listFooter }
+const experiences = [
+  {
+    title: "Web Developer",
+    company_name: "PT. Gogobli Asia Teknologi",
+    icon: null,
+    iconBg: "#accbe1",
+    date: "June 2021 - Now",
+    points: [
+      "Developing and maintaining web applications using PHP and other related technologies.",
+      "Database constructed maintened and managing using MYSQL",
+      "Integrating web applications with Third Parties using APIs",
+    ],
+  },
+  {
+    title: "Freelance Web Developer",
+    company_name: "Dotech",
+    icon: null,
+    iconBg: "#b7e4c7",
+    date: "November 2022 - Now",
+    points: [
+      "Developing and maintaining web applications using PHP, Codeigniter and other related technologies.",
+      "Implementing responsive design and ensuring cross-browser compatibility.",
+      "Integrating web applications using APIs",
+      "Building cashier and membership system"
+    ],
+  },
+]
+
+const education = []
+
+export { catSize, skills, socialLinks, listMenu, listFooter, experiences }
