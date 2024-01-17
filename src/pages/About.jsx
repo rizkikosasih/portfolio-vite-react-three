@@ -1,5 +1,6 @@
 import imgAbout from "./../assets/images/photo.jpg"
 import CTA from "./../components/CTA"
+import { educations } from "../constants/index"
 
 const About = () => {
   return (
@@ -26,6 +27,31 @@ const About = () => {
             className="rounded-full w-[240px] h-[240px] md:w-[360px] md:h-[360px]"
           />
         </div>
+      </div>
+
+      <h1 className="head-text py-10">Educations</h1>
+      <div className='flex flex-wrap'>
+        {educations.map((education) => (
+          <div className='w-1/2 my-10' key={education.name}>
+            <div className='block-container w-12 h-12'>
+              <div className={`btn-back rounded-xl ${education.theme}`} />
+              <div className='btn-front rounded-xl flex justify-center items-center'>
+                <img
+                  src={education.iconUrl}
+                  alt='threads'
+                  className='w-1/2 h-1/2 object-contain'
+                />
+              </div>
+            </div>
+
+            <div className='mt-5 flex flex-col'>
+              <h4 className='text-2xl font-poppins font-semibold'>
+                {education.name}
+              </h4>
+              <p className='mt-2 text-slate-500'>{education.description}</p>
+            </div>
+          </div>
+        ))}
       </div>
 
       <hr className='border-slate-200' />

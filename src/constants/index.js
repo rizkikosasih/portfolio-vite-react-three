@@ -21,6 +21,12 @@ import php from "./../assets/icons/php.svg"
 import react from "./../assets/icons/react.svg"
 import tailwindcss from "./../assets/icons/tailwindcss.svg"
 import vites from "./../assets/icons/vites.svg"
+import ecommerce from "./../assets/icons/ecommerce.svg"
+import cashier from "./../assets/icons/cashier.svg"
+import sd from "./../assets/icons/sd.svg"
+import smp from "./../assets/icons/smp.svg"
+import smk from "./../assets/icons/smk.svg"
+import sarjana from "./../assets/icons/sarjana.svg"
 
 const catSize = {
   smMax: {
@@ -202,30 +208,56 @@ const experiences = [
   {
     title: "Web Developer",
     company_name: "PT. Gogobli Asia Teknologi",
-    icon: null,
+    icon: ecommerce,
     iconBg: "#accbe1",
     date: "June 2021 - Now",
     points: [
       "Developing and maintaining web applications using PHP and other related technologies.",
-      "Database constructed maintened and managing using MYSQL",
-      "Integrating web applications with Third Parties using APIs",
+      "Database constructed maintened and managing using MYSQL.",
+      "Integrating web applications with Third Parties using APIs.",
+      "related within purchase orders, stock-taking, ecommerce and etc."
     ],
   },
   {
     title: "Freelance Web Developer",
-    company_name: "Dotech",
-    icon: null,
+    company_name: "Viama",
+    icon: cashier,
     iconBg: "#b7e4c7",
     date: "November 2022 - Now",
     points: [
       "Developing and maintaining web applications using PHP, Codeigniter and other related technologies.",
       "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Integrating web applications using APIs",
-      "Building cashier and membership system"
+      "Integrating web applications using APIs.",
+      "Building cashier and membership system."
     ],
   },
 ]
 
-const education = []
+const educations = [
+  {
+    iconUrl: sd,
+    theme: 'btn-back-red',
+    name: 'Elementary School',
+    description: '2011-2014',
+  },
+  {
+    iconUrl: smp,
+    theme: 'btn-back-green',
+    name: 'Junior High School',
+    description: '2008-2011',
+  },
+  {
+    iconUrl: smk,
+    theme: 'btn-back-yellow',
+    name: 'Vocational High School',
+    description: '2011-2014',
+  },
+  {
+    iconUrl: sarjana,
+    theme: 'btn-back-black',
+    name: 'S1 Technology Information',
+    description: '2014-2021',
+  },
+]
 
-export { catSize, skills, socialLinks, listMenu, listFooter, experiences }
+export { catSize, skills, socialLinks, listMenu, listFooter, experiences, educations }
