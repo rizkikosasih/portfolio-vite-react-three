@@ -238,25 +238,29 @@ const educations = [
     iconUrl: sd,
     theme: 'btn-back-red',
     name: 'Elementary School',
-    description: '2011-2014',
+    periode: '2011-2014',
+    schoolName: 'SDN 09 Jakarta',
   },
   {
     iconUrl: smp,
     theme: 'btn-back-green',
     name: 'Junior High School',
-    description: '2008-2011',
+    periode: '2008-2011',
+    schoolName: 'SMPN 72 Jakarta',
   },
   {
     iconUrl: smk,
     theme: 'btn-back-yellow',
     name: 'Vocational High School',
-    description: '2011-2014',
+    periode: '2011-2014',
+    schoolName: 'SMK YP IPPI',
   },
   {
     iconUrl: sarjana,
     theme: 'btn-back-black',
     name: 'S1 Technology Information',
-    description: '2014-2021',
+    periode: '2014-2021',
+    schoolName: 'Institut Teknologi dan Bisnis Swadharma',
   },
 ]
 
