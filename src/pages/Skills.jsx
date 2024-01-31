@@ -26,6 +26,7 @@ const Skills = () => {
                   src={skill.imageUrl}
                   alt={skill.name}
                   className='w-1/2 h-1/2 object-contain'
+                  loading="lazy"
                 />
               </div>
 
@@ -58,6 +59,7 @@ const Skills = () => {
                   src={experience.icon}
                   alt={experience.company_name}
                   className='w-[60%] h-[60%] object-contain'
+                  loading="lazy"
                 />
               </div>
             }

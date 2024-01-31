@@ -1,0 +1,17 @@
+{
+  "recommendations": [
+    "formulahendry.auto-complete-tag",
+    "mgmcdermott.vscode-language-babel",
+    "adpyke.codesnap",
+    "mikestead.dotenv",
+    "editorconfig.editorconfig",
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "ecmel.vscode-html-css",
+    "christian-kohler.npm-intellisense",
+    "burkeholland.simple-react-snippets",
+    "bradlc.vscode-tailwindcss",
+    "antfu.vite",
+    // "gamunu.vscode-yarn"
+  ]
+}

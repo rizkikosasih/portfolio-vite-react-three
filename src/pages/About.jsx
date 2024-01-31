@@ -25,6 +25,7 @@ const About = () => {
           <img
             src={imgAbout}
             className="rounded-full w-[240px] h-[240px] md:w-[360px] md:h-[360px]"
+            loading="lazy"
           />
         </div>
       </div>
@@ -39,8 +40,8 @@ const About = () => {
               <div className="btn-front rounded-xl flex justify-center items-center">
                 <img
                   src={education.iconUrl}
-                  alt="threads"
                   className="w-1/2 h-1/2 object-contain"
+                  loading="lazy"
                 />
               </div>
             </div>
