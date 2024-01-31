@@ -127,12 +127,12 @@ const skills = [
   },
   {
     imageUrl: nodejs,
-    name: "Node.js",
+    name: "Node JS",
     type: "Backend",
   },
   {
     imageUrl: react,
-    name: "React",
+    name: "React JS",
     type: "Frontend",
   },
   {
@@ -188,11 +188,11 @@ const socialLinks = [
     iconUrl: contact,
     link: '/contact',
   },
-  {
-    name: 'GitHub',
-    iconUrl: github,
-    link: 'https://github.com/rizkikosasih',
-  },
+  // {
+  //   name: 'GitHub',
+  //   iconUrl: github,
+  //   link: 'https://github.com/rizkikosasih',
+  // },
   {
     name: 'LinkedIn',
     iconUrl: linkedin,
