@@ -8,10 +8,9 @@
     "dsznajder.es7-react-js-snippets",
     "dbaeumer.vscode-eslint",
     "ecmel.vscode-html-css",
-    "christian-kohler.npm-intellisense",
-    "burkeholland.simple-react-snippets",
     "bradlc.vscode-tailwindcss",
     "antfu.vite",
-    // "gamunu.vscode-yarn"
+    "jawandarajbir.react-vscode-extension-pack",
+    "gamunu.vscode-yarn",
   ]
 }

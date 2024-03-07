@@ -188,11 +188,11 @@ const socialLinks = [
     iconUrl: contact,
     link: '/contact',
   },
-  // {
-  //   name: 'GitHub',
-  //   iconUrl: github,
-  //   link: 'https://github.com/rizkikosasih',
-  // },
+  {
+    name: 'GitHub',
+    iconUrl: github,
+    link: 'https://github.com/rizkikosasih',
+  },
   {
     name: 'LinkedIn',
     iconUrl: linkedin,
