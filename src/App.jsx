@@ -1,8 +1,8 @@
-import { Route, HashRouter as Router, Routes } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Footer from './components/Footer'
-import PageNotFound from './pages/PageNotFound'
-import { Home, About, Skills, Contact } from "./pages/index"
+import { Route, HashRouter as Router, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import PageNotFound from './pages/PageNotFound';
+import { Home, About, Skills, Contact } from './pages/index';
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
         <Footer />
       </Router>
     </main>
-  )
-}
+  );
+};
 
-export default App
+export default App;

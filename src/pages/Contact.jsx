@@ -1,95 +1,98 @@
-import { useEffect, useRef, useState, Suspense } from "react"
-import emailjs from "@emailjs/browser"
-import { Canvas } from "@react-three/fiber"
-import Loader from "./../components/Loader"
-import Alert from "./../components/Alert"
-import Cat from "../models/Cat"
-import { catSize } from "../constants/index"
-import useAlert from "../hooks/useAlert"
+import { useEffect, useRef, useState, Suspense } from 'react';
+import emailjs from '@emailjs/browser';
+import { Canvas } from '@react-three/fiber';
+import Loader from './../components/Loader';
+import Alert from './../components/Alert';
+import Cat from '../models/Cat';
+import { catSize } from '../constants/index';
+import useAlert from '../hooks/useAlert';
 
 const Contact = () => {
-  const formRef = useRef()
-  const canvasRef = useRef()
-  const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const [isLoading, setIsLoading] = useState(false)
-  const [currentAnimation, setCurrentAnimation] = useState('Sleeping')
-  const [currentSize, setCurrentSize] = useState('xlMax')
+  const formRef = useRef();
+  const canvasRef = useRef();
+  const [form, setForm] = useState({ name: '', email: '', message: '' });
+  const [isLoading, setIsLoading] = useState(false);
+  const [currentAnimation, setCurrentAnimation] = useState('Sleeping');
+  const [currentSize, setCurrentSize] = useState('xlMax');
 
-  const { alert, showAlert, hideAlert } = useAlert()
+  const { alert, showAlert, hideAlert } = useAlert();
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value })
-  }
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
-  const handleFocus = (e) => setCurrentAnimation('Sitting')
+  const handleFocus = (e) => setCurrentAnimation('Sitting');
 
-  const handleBlur = (e) => setCurrentAnimation('Sleeping')
+  const handleBlur = (e) => setCurrentAnimation('Sleeping');
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsLoading(true)
-    setCurrentAnimation('Walk')
+    e.preventDefault();
+    setIsLoading(true);
+    setCurrentAnimation('Walk');
 
     /** Sending Email Use @emailjs/browser */
-    emailjs.send(
-      import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
-      import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
-      {
-        from_name: form.name,
-        to_name: 'Rizki Kosasih',
-        message: form.message,
-        form_email: form.email,
-        to_email: 'rizkikosasih1997@gmail.com'
-      },
-      import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY,
-    ).then(() => {
-      setIsLoading(false)
-      showAlert({ text: 'Message sent successfully!', type: 'success' })
-      setForm({ name: '', email: '', message: '' })
+    emailjs
+      .send(
+        import.meta.env.VITE_APP_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_APP_EMAILJS_TEMPLATE_ID,
+        {
+          from_name: form.name,
+          to_name: 'Rizki Kosasih',
+          message: form.message,
+          form_email: form.email,
+          to_email: 'rizkikosasih1997@gmail.com'
+        },
+        import.meta.env.VITE_APP_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        setIsLoading(false);
+        showAlert({ text: 'Message sent successfully!', type: 'success' });
+        setForm({ name: '', email: '', message: '' });
 
-      setTimeout(() => {
-        hideAlert()
-        setCurrentAnimation('Sleeping')
-      }, [3000])
-    }).catch((error) => {
-      setIsLoading(false)
-      setCurrentAnimation('Sleeping')
-      console.warn(error)
-      showAlert({ text: 'I didnt received your message', type: 'danger' })
-    })
-  }
+        setTimeout(() => {
+          hideAlert();
+          setCurrentAnimation('Sleeping');
+        }, [3000]);
+      })
+      .catch((error) => {
+        setIsLoading(false);
+        setCurrentAnimation('Sleeping');
+        console.warn(error);
+        showAlert({ text: 'I didnt received your message', type: 'danger' });
+      });
+  };
 
   /* adjust for screen size */
   useEffect(() => {
     if (window.innerWidth <= 480) {
-      setCurrentSize('smMax')
+      setCurrentSize('smMax');
     } else if (window.innerWidth <= 768) {
-      setCurrentSize('mdMax')
+      setCurrentSize('mdMax');
     } else if (window.innerWidth <= 1024) {
-      setCurrentSize('lgMax')
+      setCurrentSize('lgMax');
     } else {
-      setCurrentSize('xlMax')
+      setCurrentSize('xlMax');
     }
 
-    return () => adjustForScreenSize
-  }, [])
+    return () => adjustForScreenSize;
+  }, []);
 
   const adjustForScreenSize = () => {
-    let screenPosition = catSize[currentSize][currentAnimation]['position']
-    let screenRotation = catSize[currentSize][currentAnimation]['rotation']
-    let screenScale = catSize[currentSize][currentAnimation]['scale']
-    return [screenPosition, screenRotation, screenScale]
-  }
+    let screenPosition = catSize[currentSize][currentAnimation]['position'];
+    let screenRotation = catSize[currentSize][currentAnimation]['rotation'];
+    let screenScale = catSize[currentSize][currentAnimation]['scale'];
+    return [screenPosition, screenRotation, screenScale];
+  };
 
-  const [positionScene, rotationScene, scaleScene] = adjustForScreenSize()
+  const [positionScene, rotationScene, scaleScene] = adjustForScreenSize();
 
   const createBubble = () => {
     var output = [];
     for (let i = 0; i < 30; i++) {
-      output.push(<div key={'bubble-' + i} className="bubble"></div>)
+      output.push(<div key={'bubble-' + i} className="bubble"></div>);
     }
-    return output
-  }
+    return output;
+  };
 
   return (
     <section className="max-container relative" style={{ paddingBottom: '1rem' }}>
@@ -161,18 +164,16 @@ const Contact = () => {
             camera={{
               // position: [0, 0, 5],
               fov: 35,
-              near: .1,
+              near: 0.1,
               far: 1000
             }}
             className="flex justify-center items-center"
             resize={{ scroll: true, debounce: 0 }}
-            shadows linear
+            shadows
+            linear
           >
             <Suspense fallback={<Loader />}>
-              <directionalLight
-                intensity={2.5}
-                position={[0, 0, 1]}
-              />
+              <directionalLight intensity={2.5} position={[0, 0, 1]} />
               <ambientLight intensity={1} />
 
               <Cat
@@ -186,11 +187,9 @@ const Contact = () => {
         </div>
       </div>
 
-      <div className="absolute -bottom-[5%] left-0 right-0 z-[1]">
-        {createBubble()}
-      </div>
+      <div className="absolute -bottom-[5%] left-0 right-0 z-[1]">{createBubble()}</div>
     </section>
-  )
-}
+  );
+};
 
-export default Contact
+export default Contact;

@@ -1,8 +1,13 @@
-import { Html } from "@react-three/drei"
-import { Vortex } from "react-loader-spinner"
+import { Html } from '@react-three/drei';
+import { Vortex } from 'react-loader-spinner';
 
 const Loader = () => {
-  const style = { position: "fixed", top: "50%", left: "50%", transform: "translate(-50%, -50%)" }
+  const style = {
+    position: 'fixed',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)'
+  };
   return (
     <Html>
       <div style={style}>
@@ -16,7 +21,7 @@ const Loader = () => {
         />
       </div>
     </Html>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

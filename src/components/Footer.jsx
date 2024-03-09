@@ -1,21 +1,23 @@
-import { Link, useLocation } from "react-router-dom"
-import { socialLinks, listFooter } from "../constants"
+import { Link, useLocation } from 'react-router-dom';
+import { socialLinks, listFooter } from '../constants';
 
 const Footer = () => {
-  const location = useLocation()
+  const location = useLocation();
 
   return (
-    <footer className={`footer font-poppins ${listFooter.includes(location.pathname) ? '' : 'hidden'}`}>
-      <hr className='border-slate-200' />
+    <footer
+      className={`footer font-poppins ${listFooter.includes(location.pathname) ? '' : 'hidden'}`}
+    >
+      <hr className="border-slate-200" />
 
-      <div className='footer-container'>
+      <div className="footer-container">
         <p>
           Powered By <strong>Rizki Kosasih</strong>.
         </p>
 
-        <div className='flex gap-3 justify-center items-center'>
+        <div className="flex gap-3 justify-center items-center">
           {socialLinks.map((link) => (
-            <Link key={link.name} to={link.link} target='_blank'>
+            <Link key={link.name} to={link.link} target="_blank">
               <img
                 src={link.iconUrl}
                 alt={link.name}
@@ -26,7 +28,7 @@ const Footer = () => {
         </div>
       </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
