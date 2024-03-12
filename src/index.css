@@ -9,6 +9,12 @@
   --green-rgb: 125 161 35;
 }
 
+* {
+  scrollbar-width: thin !important;
+  scrollbar-color: transparent !important;
+  scroll-behavior: smooth !important;
+}
+
 body {
   font-family: 'Work Sans', sans-serif;
 }
@@ -158,11 +164,11 @@ body:has(.card[data-color='green']:hover) {
   overflow: hidden;
 }
 
-.block-container:hover > .btn-back {
+.block-container:hover>.btn-back {
   transform: translateZ(20px) rotateZ(15deg) rotateX(-20deg) rotateY(-20deg);
 }
 
-.block-container:hover > .btn-front {
+.block-container:hover>.btn-front {
   transform: translateZ(80px) translateY(-5px) rotateX(15deg) rotateY(15deg);
 }
 
@@ -240,9 +246,11 @@ header.header.footer.hidden {
     opacity: 1;
     transform: translate(-50%, 0) scale(0);
   }
+
   75% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     transform: translate(-50%, calc(var(--distance) * -1vh)) scale(var(--scale));
@@ -254,9 +262,11 @@ header.header.footer.hidden {
     opacity: 1;
     transform: translate(-50%, 0) scale(0);
   }
+
   75% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     transform: translate(-50%, calc(var(--distance) * -1vh)) scale(var(--scale));
@@ -272,6 +282,7 @@ header.header.footer.hidden {
   --delay: 4;
   --scale: 1.47;
 }
+
 .bubble:nth-of-type(2) {
   --x: 20;
   --size: 31;
@@ -281,6 +292,7 @@ header.header.footer.hidden {
   --delay: 7;
   --scale: 1.04;
 }
+
 .bubble:nth-of-type(3) {
   --x: 23;
   --size: 35;
@@ -290,6 +302,7 @@ header.header.footer.hidden {
   --delay: 6;
   --scale: 1.41;
 }
+
 .bubble:nth-of-type(4) {
   --x: 35;
   --size: 15;
@@ -299,6 +312,7 @@ header.header.footer.hidden {
   --delay: 8;
   --scale: 1.12;
 }
+
 .bubble:nth-of-type(5) {
   --x: 57;
   --size: 27;
@@ -308,6 +322,7 @@ header.header.footer.hidden {
   --delay: 3;
   --scale: 1.39;
 }
+
 .bubble:nth-of-type(6) {
   --x: 39;
   --size: 36;
@@ -317,6 +332,7 @@ header.header.footer.hidden {
   --delay: 6;
   --scale: 1.48;
 }
+
 .bubble:nth-of-type(7) {
   --x: 70;
   --size: 43;
@@ -326,6 +342,7 @@ header.header.footer.hidden {
   --delay: 8;
   --scale: 1.02;
 }
+
 .bubble:nth-of-type(8) {
   --x: 21;
   --size: 26;
@@ -335,6 +352,7 @@ header.header.footer.hidden {
   --delay: 6;
   --scale: 1.46;
 }
+
 .bubble:nth-of-type(9) {
   --x: 56;
   --size: 43;
@@ -344,6 +362,7 @@ header.header.footer.hidden {
   --delay: 5;
   --scale: 1.42;
 }
+
 .bubble:nth-of-type(10) {
   --x: 21;
   --size: 21;
@@ -353,6 +372,7 @@ header.header.footer.hidden {
   --delay: 7;
   --scale: 1.22;
 }
+
 .bubble:nth-of-type(11) {
   --x: 33;
   --size: 38;
@@ -362,6 +382,7 @@ header.header.footer.hidden {
   --delay: 9;
   --scale: 1.04;
 }
+
 .bubble:nth-of-type(12) {
   --x: 78;
   --size: 30;
@@ -371,6 +392,7 @@ header.header.footer.hidden {
   --delay: 2;
   --scale: 1.4;
 }
+
 .bubble:nth-of-type(13) {
   --x: 18;
   --size: 27;
@@ -380,6 +402,7 @@ header.header.footer.hidden {
   --delay: 8;
   --scale: 1.33;
 }
+
 .bubble:nth-of-type(14) {
   --x: 15;
   --size: 32;
@@ -389,6 +412,7 @@ header.header.footer.hidden {
   --delay: 3;
   --scale: 1.45;
 }
+
 .bubble:nth-of-type(15) {
   --x: 14;
   --size: 29;
@@ -398,6 +422,7 @@ header.header.footer.hidden {
   --delay: 6;
   --scale: 1.08;
 }
+
 .bubble:nth-of-type(16) {
   --x: 58;
   --size: 43;
@@ -407,6 +432,7 @@ header.header.footer.hidden {
   --delay: 9;
   --scale: 1.47;
 }
+
 .bubble:nth-of-type(17) {
   --x: 87;
   --size: 46;
@@ -416,6 +442,7 @@ header.header.footer.hidden {
   --delay: 6;
   --scale: 1.27;
 }
+
 .bubble:nth-of-type(18) {
   --x: 76;
   --size: 21;
@@ -425,6 +452,7 @@ header.header.footer.hidden {
   --delay: 7;
   --scale: 1.07;
 }
+
 .bubble:nth-of-type(19) {
   --x: 81;
   --size: 11;
@@ -434,6 +462,7 @@ header.header.footer.hidden {
   --delay: 5;
   --scale: 1.1;
 }
+
 .bubble:nth-of-type(20) {
   --x: 94;
   --size: 17;
@@ -443,6 +472,7 @@ header.header.footer.hidden {
   --delay: 2;
   --scale: 1.13;
 }
+
 .bubble:nth-of-type(21) {
   --x: 33;
   --size: 42;
@@ -452,6 +482,7 @@ header.header.footer.hidden {
   --delay: 3;
   --scale: 1.29;
 }
+
 .bubble:nth-of-type(22) {
   --x: 98;
   --size: 12;
@@ -461,6 +492,7 @@ header.header.footer.hidden {
   --delay: 2;
   --scale: 1.23;
 }
+
 .bubble:nth-of-type(23) {
   --x: 38;
   --size: 28;
@@ -470,6 +502,7 @@ header.header.footer.hidden {
   --delay: 3;
   --scale: 1.38;
 }
+
 .bubble:nth-of-type(24) {
   --x: 80;
   --size: 38;
@@ -479,6 +512,7 @@ header.header.footer.hidden {
   --delay: 7;
   --scale: 1.43;
 }
+
 .bubble:nth-of-type(25) {
   --x: 51;
   --size: 39;
@@ -488,6 +522,7 @@ header.header.footer.hidden {
   --delay: 8;
   --scale: 1.22;
 }
+
 .bubble:nth-of-type(26) {
   --x: 92;
   --size: 17;
@@ -497,6 +532,7 @@ header.header.footer.hidden {
   --delay: 6;
   --scale: 1.33;
 }
+
 .bubble:nth-of-type(27) {
   --x: 27;
   --size: 29;
@@ -506,6 +542,7 @@ header.header.footer.hidden {
   --delay: 3;
   --scale: 1.34;
 }
+
 .bubble:nth-of-type(28) {
   --x: 20;
   --size: 12;
@@ -515,6 +552,7 @@ header.header.footer.hidden {
   --delay: 7;
   --scale: 1.31;
 }
+
 .bubble:nth-of-type(29) {
   --x: 47;
   --size: 46;
@@ -524,6 +562,7 @@ header.header.footer.hidden {
   --delay: 3;
   --scale: 1.22;
 }
+
 .bubble:nth-of-type(30) {
   --x: 18;
   --size: 17;
