@@ -11,7 +11,7 @@ import bgMusic from './../assets/musics/evening-improvisation.mp3';
 
 const Home = () => {
   const audioRef = useRef(new Audio(bgMusic));
-  audioRef.current.volume = 0.5;
+  audioRef.current.volume = 1;
   audioRef.current.loop = true;
 
   const [currentStage, setCurrentStage] = useState(1);
@@ -65,8 +65,7 @@ const Home = () => {
 
       <Canvas
         className={`w-full h-screen bg-transparent ${isRotating ? 'cursor-grabbing' : 'cursor-grab'}`}
-        camera={{ fov: 75, near: 0.1, far: 1000 }}
-      >
+        camera={{ fov: 75, near: 0.1, far: 1000 }}>
         <Suspense fallback={<Loader />}>
           <directionalLight position={[10, 1, 10]} intensity={2} />
           <ambientLight intensity={0.1} />
@@ -95,8 +94,7 @@ const Home = () => {
       <div className="absolute bottom-2 left-3">
         <button
           className="relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium bg-gray-900 text-white rounded-full group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white focus:ring-4 focus:outline-none focus:ring-green-800"
-          onClick={handlebtnAudioClick}
-        >
+          onClick={handlebtnAudioClick}>
           <span className="relative p-1 transition-all ease-in duration-75 bg-gray-900 rounded-full group-hover:bg-opacity-0">
             {!isPlayMusic ? (
               <IoPlayCircleOutline className="w-8 h-8" />

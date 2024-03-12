@@ -105,8 +105,7 @@ const Contact = () => {
           <form
             className="w-full flex flex-col gap-7 mt-10"
             onSubmit={handleSubmit}
-            ref={formRef}
-          >
+            ref={formRef}>
             <label className="font-semibold text-black-500">Name</label>
             <input
               className="input"
@@ -151,8 +150,7 @@ const Contact = () => {
               disabled={isLoading}
               type="submit"
               onBlur={handleBlur}
-              onFocus={handleFocus}
-            >
+              onFocus={handleFocus}>
               {isLoading ? 'Sending ...' : 'Send Message'}
             </button>
           </form>
@@ -170,8 +168,7 @@ const Contact = () => {
             className="flex justify-center items-center"
             resize={{ scroll: true, debounce: 0 }}
             shadows
-            linear
-          >
+            linear>
             <Suspense fallback={<Loader />}>
               <directionalLight intensity={2.5} position={[0, 0, 1]} />
               <ambientLight intensity={1} />

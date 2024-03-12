@@ -6,8 +6,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`footer font-poppins ${listFooter.includes(location.pathname) ? '' : 'hidden'}`}
-    >
+      className={`footer font-poppins ${listFooter.includes(location.pathname) ? '' : 'hidden'}`}>
       <hr className="border-slate-200" />
 
       <div className="footer-container">

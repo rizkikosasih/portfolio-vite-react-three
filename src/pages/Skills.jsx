@@ -21,8 +21,7 @@ const Skills = () => {
               <div
                 data-tooltip-id={skill.name.trim().toLowerCase()}
                 data-tooltip-html={`<p class='font-semibold'>${skill.name}</p>`}
-                className="btn-front rounded-xl flex justify-center items-center"
-              >
+                className="btn-front rounded-xl flex justify-center items-center">
                 <img
                   src={skill.imageUrl}
                   alt={skill.name}
@@ -71,8 +70,7 @@ const Skills = () => {
               borderStyle: 'solid',
               borderBottomColor: experience.iconBg,
               boxShadow: 'none'
-            }}
-          >
+            }}>
             <div>
               <h3 className="text-black text-xl font-poppins font-semibold">
                 {experience.title}
@@ -86,8 +84,7 @@ const Skills = () => {
               {experience.points.map((point, index) => (
                 <li
                   key={`experience-point-${index}`}
-                  className="text-black-500/50 font-normal pl-1 text-sm"
-                >
+                  className="text-black-500/50 font-normal pl-1 text-sm">
                   {point}
                 </li>
               ))}
