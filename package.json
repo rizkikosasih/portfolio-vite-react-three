@@ -3,13 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://rizkikosasih.github.io/portfolio-vite-react-three",
   "scripts": {
     "dev": "vite --port=4000",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "format": "prettier --write './**/*.{js,jsx,ts,tsx,css,md,json}' --config ./.prettierrc.json"
+    "format": "prettier . --write --config .prettierrc.json"
   },
   "dependencies": {
     "@emailjs/browser": "^3.12.1",
