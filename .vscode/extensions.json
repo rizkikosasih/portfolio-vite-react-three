@@ -12,6 +12,7 @@
     "antfu.vite",
     "jawandarajbir.react-vscode-extension-pack",
     "gamunu.vscode-yarn",
-    "esbenp.prettier-vscode"
+    "esbenp.prettier-vscode",
+	"wix.vscode-import-cost"
   ]
 }
