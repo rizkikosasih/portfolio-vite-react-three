@@ -16,7 +16,7 @@ const Home = () => {
 
   const [currentStage, setCurrentStage] = useState(1);
   const [isRotating, setIsRotating] = useState(false);
-  const [isPlayMusic, setIsPlayMusic] = useState(true);
+  const [isPlayMusic, setIsPlayMusic] = useState(false);
 
   const handlebtnAudioClick = (e) => {
     setIsPlayMusic(!isPlayMusic);
@@ -24,12 +24,14 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (isPlayMusic) audioRef.current.play();
+    if (isPlayMusic) {
+      audioRef.current.play();
+    }
 
     return () => {
       audioRef.current.pause();
     };
-  });
+  }, []);
 
   const adjustIslandForScreenSize = () => {
     let screenScale = [1, 1, 1];

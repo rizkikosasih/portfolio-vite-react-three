@@ -11,7 +11,7 @@ const Footer = () => {
 
       <div className="footer-container">
         <p>
-          Powered By <strong>Rizki Kosasih</strong>.
+          Created By <strong>Rizki Kosasih</strong>.
         </p>
 
         <div className="flex gap-3 justify-center items-center">
