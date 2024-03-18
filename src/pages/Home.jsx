@@ -7,11 +7,11 @@ import Sky from './../models/Sky';
 import Bird from './../models/Bird';
 import Plane from './../models/Plane';
 import HomeInfo from './../components/HomeInfo';
-import bgMusic from './../assets/musics/evening-improvisation.mp3';
+import bgMusic from './../assets/music/bg-music.mp3';
 
 const Home = () => {
   const audioRef = useRef(new Audio(bgMusic));
-  audioRef.current.volume = 1;
+  audioRef.current.volume = 0.65;
   audioRef.current.loop = true;
 
   const [currentStage, setCurrentStage] = useState(1);
@@ -26,12 +26,14 @@ const Home = () => {
   useEffect(() => {
     if (isPlayMusic) {
       audioRef.current.play();
+    } else {
+      audioRef.current.pause();
     }
 
     return () => {
       audioRef.current.pause();
     };
-  }, []);
+  }, [isPlayMusic]);
 
   const adjustIslandForScreenSize = () => {
     let screenScale = [1, 1, 1];
