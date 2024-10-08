@@ -54,7 +54,7 @@ export function Island({
     e.stopPropagation();
     e.preventDefault();
     if (isRotating) {
-      const speedRotation = isMobile ? 0.045 : 0.01;
+      const speedRotation = isMobile ? 0.025 : 0.01;
 
       const clientX = e.touches ? e.touches[0].clientX : e.clientX;
 
@@ -67,6 +67,11 @@ export function Island({
 
       rotationSpeed.current = delta * speedRotation * Math.PI;
     }
+  };
+
+  const handlePointerOut = (e) => {
+    e.preventDefault();
+    if (isMobile && isRotating) setIsRotating(false);
   };
 
   const handleKeyDown = (e) => {
@@ -95,6 +100,7 @@ export function Island({
     canvas.addEventListener('pointerdown', handlePointerDown);
     canvas.addEventListener('pointerup', handlePointerUp);
     canvas.addEventListener('pointermove', handlePointerMove);
+    canvas.addEventListener('pointerout', handlePointerOut);
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
 
@@ -102,6 +108,7 @@ export function Island({
       canvas.removeEventListener('pointerdown', handlePointerDown);
       canvas.removeEventListener('pointerup', handlePointerUp);
       canvas.removeEventListener('pointermove', handlePointerMove);
+      canvas.removeEventListener('pointerout', handlePointerOut);
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
     };
@@ -113,9 +120,9 @@ export function Island({
 
       if (Math.abs(rotationSpeed.current) < 0.001) {
         rotationSpeed.current += 0.001;
+      } else {
+        islandRef.current.rotation.y -= 0.001;
       }
-
-      islandRef.current.rotation.y -= rotationSpeed.current;
     }
     const rotation = islandRef.current.rotation.y;
 
